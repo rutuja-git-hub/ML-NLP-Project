@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+
+    <link rel='stylesheet' href='bootstrap.min.css'>
+    </style>
+    <link rel='stylesheet' href='font-awesome.min.css'>
+    </style>
+    <!-- Fontawesome -->
+    <link type="text/css" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/static/assets/css/pixel.css" rel="stylesheet">
+    <section class=" bg-secondary text-white" style="margin-top:50px;padding:40px 0 0 0">
+        <div class="container">
+            <div class="centered">
+                <header class="text-center text-white">
+                    <title> Semantic Search app </title>
+                    <section class=" bg-secondary text-white" style="padding:50px;margin:50px 0 0 0">
+                        <h1 class="display-2 mb-2"
+                            style="color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 33px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; ">
+                            Semantic Search Demo
+                        </h1>
+                        <p class='display-2 mb-2'
+                            style="padding:50px;color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 20px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; ">
+                            Type a sentence, click on the submit button and wait for your prediction.
+                        </p>
+
+                        <form method="POST" onSubmit='validate();' class='form'>
+                            <input style="width:40%;height:50px" name="text" style="width:200px">
+                            <input class="btn btn-tertiary me-3 animate-up-2" type="submit"
+                                onclick='this.form.submit();'>
+                        </form>
+                        <br>
+                        <br>
+                        <div>
+                            <p class = 'display-2 mb-2' style="color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: left; " >
+                                Input Question: {{input_question}}
+                                </p>
+                            <table id="customers">
+                                <tr>
+                                    <th>How Close Your Request Matches A Request In The File</th>
+                                    <th>Matching Request Item From File</th>
+                                    <th>File Used</th>
+                                    <th>Applicable Department</th>
+                                </tr>
+                                {% for i in range(variable| length) %}
+                                <tr>
+                                    <td>{{variable[i][0]}}</td>
+                                    <td style="text-align: left;">{{variable[i][1]}}</td>
+                                    <td style="text-align: left;">{{variable[i][2]}}</td>
+                                    <td style="text-align: left;">{{variable[i][3]}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </section>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End of Hero section -->
+
+    <!-- Section -->
+    <section class="section section-md">
+        <div class="container">
+            <div class="row align-items-center justify-content-around">
+
+                <div class="col-md-6 col-xl-5 text-center text-md-left">
+                    <p class="lead">Natural Language Processing (NLP) is the ability of a computer program to understand
+                        human language as it is spoken and written. The best-known example of NLP, smart assistants such
+                        as Siri and Alexa have become increasingly integrated into our lives. Using NLP, they break
+                        language down into parts of speech, word stems and other linguistic features
+                    </p>
+                    <p class="lead">Natural language inference (NLI) is the most common approach to fine-tuning a
+                        generic monolingual sentence transformer. The original SBERT “bert-base-nli-mean-tokens” was
+                        trained with this, which is one of the highest performing models.
+                    </p>
+                    <p class="lead">
+                        The model that we used, called "bert-base-nli-mean-tokens" is a sentence-transformers model that
+                        maps sentences & paragraphs to a 768 dimensional dense vector space and can be used for tasks
+                        like clustering or semantic search as seen above.
+                    </p>
+                    <!-- <img src="/static/assets/img/signature.svg" alt="signature" class="mt-4" width="150"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of section -->
+
+    <section class=" bg-secondary text-white" style="margin-top:50px;padding:40px 0 0 0">
+
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-12 col-md-7 col-lg-6 text-center text-md-left">
+                    <h1 class="h1 mb-5" style="font-size:20px">Our Model's Performance <br class="d-none d-md-inline">
+                    </h1>
+                    <img src="/static/assets/img/loss.png">
+                    <p class="lead mb-4 text-muted" style="padding:20px;font-size:15px">In the masked language modeling
+                        (MLM) portion of the training process, we observed the loss value decreasing as the model was
+                        trained further, indicating that the model was learning to correctly predict masked terms over
+                        time.</p>
+                    <img src="/static/assets/img/accuracy.png">
+                    <p class="lead mb-4 text-muted" style="padding:20px;font-size:15px">
+                        In the semantic textual similarity (STS) portion of the training process, we observed the cosine
+                        pearson correlation value increasing as the model was trained further, indicating that the model
+                        was more accurately predicting the similarity between two sentences with further training.</p>
+                </div>
+                <div class="col-12 col-md-5 d-none d-md-block text-center"><img
+                        src="/static/assets/img/illustrations/about-illustration.svg" alt=""></div>
+            </div>
+            <figure class="position-absolute bottom-0 left-0 w-100 d-none d-md-block mb-n2">
+                <svg class="fill-white" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 43.4"
+                    style="enable-background:new 0 0 1920 43.4;" xml:space="preserve">
+                    <path
+                        d="M0,23.3c0,0,405.1-43.5,697.6,0c316.5,1.5,108.9-2.6,480.4-14.1c0,0,139-12.2,458.7,14.3 c0,0,67.8,19.2,283.3-22.7v35.1H0V23.3z">
+                    </path>
+                </svg>
+            </figure>
+        </div>
+        </div>
+    </section>
+    </head>
+</body>
+
+<style>
+    .container {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+
+    .header {
+        color: black
+    }
+
+    p {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0 0 24px;
+        text-justify: inter-word;
+    }
+
+    h1 {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: 1;
+        text-align: center;
+    }
+
+    #demo {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 22px;
+        line-height: 24px;
+        margin: 0 0 24px;
+    }
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #194b8c;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+</html>
